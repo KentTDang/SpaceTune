@@ -17,6 +17,8 @@ export default function Spotify() {
     const [token, setToken] = useState("")
     const [searchKey, setSearchKey] = useState("")
 
+    var imgURL = ""
+
 
     useEffect(() => {
         const hash = window.location.hash
@@ -45,7 +47,7 @@ export default function Spotify() {
     
       const searchArtists = async (e) => {
         e.preventDefault()
-        const {data} = await axios.get("https://api.spotify.com/v1/search ", {
+        const {data} = await axios.get("https://api.spotify.com/v1/search", {
     
     
     
@@ -55,15 +57,18 @@ export default function Spotify() {
            
           params: {
             q: searchKey, // query, adds onto  the end ofthe url, see await axios.get()
-            type: "artists" // type of search, in this case it's the artist
+            type: "artist" // type of search, in this case it's the artist
           }
     
         });
-    
-        console.log(data)
+       
+        var imageElement = document.getElementById("image")
+        imgURL = data.artists.items[0].images[0].url
+
+        imageElement.src = imgURL
     
        }
-  
+    
 
 
   return (
@@ -80,7 +85,7 @@ export default function Spotify() {
             <form onSubmit={searchArtists}>  
 
               <input type="text" onChange={e => setSearchKey(e.target.value)} />
-
+              <img id="image" alt="placeholder"></img>
               <button type = {"submit"}>Search</button>
 
             </form>  
