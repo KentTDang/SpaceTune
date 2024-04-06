@@ -138,6 +138,17 @@ export default function Review() {
             songReviews.map((songs) => (
               <div className="review" key={songs.id}>
                 <span>{songs.song} - {songs.album} - {songs.artist} - {songs.review}
+                  {[...Array(5)].map((_, index) => {
+                    const currentRating = index + 1;
+                    return (
+                      <FontAwesomeIcon
+                        key={index}
+                        className="star"
+                        icon={faStar}
+                        color={currentRating <= songs.rating ? "#ffc107" : "#e4e5e9"}
+                      />
+                    );
+                  })}
                 </span>
               </div>
             ))
