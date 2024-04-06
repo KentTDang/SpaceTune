@@ -1,5 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
+
+import { addDoc, collection, onSnapshot, updateDoc, deleteDoc, doc } from 'firebase/firestore'
+import Spotify from './Spotify'
+
 import '../Styles/Review.css'
+
 import { db } from '../Auth/firebase'
 import { addDoc, collection, onSnapshot, updateDoc, deleteDoc, doc } from 'firebase/firestore'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
