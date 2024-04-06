@@ -2,10 +2,6 @@ import React from 'react'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 
-
-
-
-
 export default function Spotify() {
 
     const clientID="ccc21638bb6e4577a2bfa7a4fe26c6ae"; // client id for using api
