@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-purple: #a06cd5;
+  --dark-purple: #7251b5;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
@@ -385,4 +390,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .swiper-3d .swiper-slide-shadow-right {
   background-image:none !important;
+}
+
+/** Review CSS **/
+
+section.review {
+  min-height: 80vh;
+}
+
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--main-purple) !important;
+}
+
+.nav {
+  --bs-nav-link-color: var(--main-purple) !important;
+  --bs-nav-link-hover-color: var(--dark-purple) !important;
 }
