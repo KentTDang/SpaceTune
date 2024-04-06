@@ -175,6 +175,7 @@ export default function Review() {
                     {songs.votes}
                     <button className="vote-button" onClick={() => { downVoteSongReview(songs.id, songs.votes) }}><FontAwesomeIcon icon={faArrowDown} /></button>
                   </div>
+                  <button className="trash-button" onClick={() => { deleteSongReview(songs.id) }}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
               </div>
             ))
