@@ -1,6 +1,7 @@
 import './App.css';
 import {NavBar} from './Components/NavBar.js'
 import { Banner } from './Components/Banner.js'
+import { Song } from './Components/Song.js'
 import Review from './Components/Review';
 import Spotify from './Spotify'
 
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Banner/>
+      <Song/>
       {/* <Spotify/>
       <Review/> */}
     </div>
