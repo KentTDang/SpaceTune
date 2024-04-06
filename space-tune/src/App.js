@@ -1,12 +1,12 @@
 import './App.css';
-import {Home} from './Components/Home.js'
+import {NavBar} from './Components/NavBar.js'
 import Review from './Components/Review';
 import Spotify from './Spotify'
 
 function App() {
   return (
     <div className="App">
-      <Home/>
+      <NavBar/>
       <Spotify/>
       <Review/>
     </div>
