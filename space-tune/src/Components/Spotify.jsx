@@ -1,6 +1,7 @@
 import React from 'react'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import '../Styles/Spotify.css'
 
 
 
@@ -18,7 +19,7 @@ export default function Spotify() {
     const [searchKey, setSearchKey] = useState("")
 
     var imgURL = ""
-
+    
 
     useEffect(() => {
         const hash = window.location.hash
@@ -44,37 +45,44 @@ export default function Spotify() {
         window.localStorage.removeItem("token")
     
       }
-    
+
       const searchArtists = async (e) => {
         e.preventDefault()
         const {data} = await axios.get("https://api.spotify.com/v1/search", {
-    
-    
-    
+      
+      
+      
           headers: {
             Authorization: `Bearer ${token}` // required to authorize usage, without you receive error 401
           },
            
           params: {
             q: searchKey, // query, adds onto  the end ofthe url, see await axios.get()
-            type: "artist" // type of search, in this case it's the artist
+            type: "track" // type of search, in this case it's the artist
           }
-    
+      
         });
        
-        var imageElement = document.getElementById("image")
-        imgURL = data.artists.items[0].images[0].url
 
+        console.log(data.tracks.items[0].album.images[0].url)
+        console.log(data)
+        console.log(data.tracks.items[0].name)
+        var imageElement = document.getElementById("artist-image")
+        var songTitleElement = document.getElementById("song-title")
+
+
+        imgURL = data.tracks.items[0].album.images[0].url
+        songTitleElement.innerHTML = data.tracks.items[0].name
         imageElement.src = imgURL
-    
+        
        }
-    
 
+    
 
   return (
     <div>
      
-        <h1>
+         <h1>
           LINK YOUR SPOTIFY ACCOUNT
         </h1>
         {!token ? 
@@ -85,14 +93,15 @@ export default function Spotify() {
             <form onSubmit={searchArtists}>  
 
               <input type="text" onChange={e => setSearchKey(e.target.value)} />
-              <img id="image" alt="placeholder"></img>
+              <img id="artist-image" alt="placeholder"></img>
               <button type = {"submit"}>Search</button>
 
             </form>  
 
             :<h2>Please Login</h2>
-        }
+        } 
 
+        <p1 id = "song-title"></p1>
       </div>
 
   )
