@@ -1,11 +1,10 @@
 import './App.css';
-import db from './Auth/firebase'
+import Review from './Components/Review';
 
 function App() {
   return (
     <div className="App">
-      Hey Hey Hey
-
+      <Review/>
     </div>
   );
 }
