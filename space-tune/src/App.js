@@ -14,8 +14,9 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
+
       <Banner/>
-      <Song/>
+
       {/* <Spotify/>
       <Review/> */}
   </div>

@@ -249,6 +249,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
 }
 
+.search-submit {
+  background-color: #fff;
+  z-index: 100 !important;
+}
+
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
