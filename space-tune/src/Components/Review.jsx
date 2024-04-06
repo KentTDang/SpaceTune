@@ -85,6 +85,12 @@ export default function Review() {
     await updateDoc(songReviewDoc, newFields)
   }
 
+  /** Delete Function Firebase **/
+  const deleteSongReview = async (id) => {
+    const songReviewDoc = doc(db, "song-reviews", id);
+    await deleteDoc(songReviewDoc);
+  }
+
 
   return (
     <>
