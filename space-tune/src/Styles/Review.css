@@ -1,4 +1,7 @@
-/* body {
+
+
+
+ body {
     background-color: rgb(14, 15, 17);
     color: rgb(228, 230, 234);
 }
@@ -7,7 +10,7 @@ input {
     background-color: rgb(36, 37, 39);
     border: none;
     color: rgb(228, 230, 234);
-} */
+}
 
 .hero {
     /* background-image: url('../../Assets/bg.webp'); */

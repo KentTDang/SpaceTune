@@ -17,7 +17,7 @@ function App() {
       <Review/>
       {/* <Spotify/>
       <Review/> */}
-    </div>
+  </div>
   );
 }
 export default App;
