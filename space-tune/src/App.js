@@ -1,11 +1,11 @@
 import './App.css';
+import Review from './Components/Review';
 
 function App() {
   return (
     <div className="App">
-      Hey Hey Hey
+      <Review/>
     </div>
   );
 }
-
 export default App;
