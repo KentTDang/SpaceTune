@@ -12,6 +12,8 @@ import {
   faPlus
 } from '@fortawesome/free-solid-svg-icons'
 
+import Popup from 'reactjs-popup';
+
 export default function Review() {
 
   const [error, setError] = useState("");
