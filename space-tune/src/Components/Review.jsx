@@ -1,10 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
-
 import { addDoc, collection, onSnapshot, updateDoc, deleteDoc, doc } from 'firebase/firestore'
-
-
 import '../Styles/Review.css'
-
 import { db } from '../Auth/firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -97,7 +93,7 @@ export default function Review() {
   return (
     <>
       <div className="review-dialog">
-        <Popup trigger={<button><FontAwesomeIcon icon={faPlus} /></button>}
+        <Popup trigger={<button className='add-review-btn'><FontAwesomeIcon icon={faPlus} /></button>}
           modal nested>
           {
             close => (
