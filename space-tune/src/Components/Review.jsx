@@ -72,6 +72,19 @@ export default function Review() {
     }
   }
 
+  /**  Update Function Firebase **/
+  const upVoteSongReview = async (id, votes) => {
+    const songReviewDoc = doc(db, "song-reviews", id);
+    const newFields = { votes: votes + 1 }
+    await updateDoc(songReviewDoc, newFields)
+  }
+
+  const downVoteSongReview = async (id, votes) => {
+    const songReviewDoc = doc(db, "song-reviews", id);
+    const newFields = { votes: votes - 1 }
+    await updateDoc(songReviewDoc, newFields)
+  }
+
 
   return (
     <>
@@ -129,7 +142,7 @@ export default function Review() {
           }
         </Popup>
       </div>
-
+      
       <div className="content-container">
         <div className="song-review-container">
           {loading ? (
@@ -150,6 +163,13 @@ export default function Review() {
                     );
                   })}
                 </span>
+                <div className="utility">
+                  <div className="vote-container">
+                    <button className="vote-button" onClick={() => { upVoteSongReview(songs.id, songs.votes) }}><FontAwesomeIcon icon={faArrowUp} /></button>
+                    {songs.votes}
+                    <button className="vote-button" onClick={() => { downVoteSongReview(songs.id, songs.votes) }}><FontAwesomeIcon icon={faArrowDown} /></button>
+                  </div>
+                </div>
               </div>
             ))
           )}
