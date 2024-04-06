@@ -68,12 +68,16 @@ input {
     align-items: center;
 }
 
+.add-review-btn {
+    background-color: #fff;
+}
+
 .button-main {
     font-size: 17px;
     padding: 0.5em 2em;
     border: transparent;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    background: dodgerblue;
+    background: #c8b6ff;
     color: rgb(228, 230, 234);
     border-radius: 4px;
     margin: 1.5px;
@@ -108,7 +112,7 @@ input {
 
 .vote-container {
     border-radius: 25px;
-    background-color: dodgerblue;
+    background-color: #a06cd5;
     width: 5.4em;
     height: 2em;
     align-items: center;
@@ -123,7 +127,7 @@ input {
 }
 
 .trash-button {
-    background-color: dodgerblue;
+    background-color: transparent;
     border: none;
     color: #fff;
     height: 2.4em;
