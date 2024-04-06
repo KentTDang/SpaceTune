@@ -1,5 +1,8 @@
-body {
-    background-color: white;
+
+
+
+ body {
+    background-color: rgb(14, 15, 17);
     color: rgb(228, 230, 234);
 }
 
@@ -144,53 +147,4 @@ input[type=radio] {
 
 .star {
     cursor: pointer;
-}
-
-.nav {
-    background-color: transparent;
-    height: 3.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-
-    .nav-links {
-        height: 3em;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.4s ease-in-out;
-        a {
-            font-size: 17px;
-            padding: 18px 30px;
-            color: #fff;
-        }
-    }
-
-
-}
-
-.nav.scrolled {
-    .nav-links {
-        top: 0;
-        background: rgba(114, 114, 114, .8);
-        opacity: 0.98;
-        backdrop-filter: blur(10px);
-        /* border: 1px solid #404040b5; */
-        box-shadow: 0 2px 10px #0000001a;
-    }
-}
-
-.nav a {
-    text-decoration: none;
-    color: #1D1D1F;
-    font-size: 1.3em;
-    margin: 1em;
-    transition: color 0.4s ease-in-out;
-}
-
-.nav.scrolled a {
-    color: #ffffff;
 }
