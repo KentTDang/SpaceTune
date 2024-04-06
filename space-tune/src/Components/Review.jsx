@@ -3,6 +3,14 @@ import React, { useState, useRef, useEffect } from 'react'
 import { db } from '../Auth/firebase'
 import { addDoc, collection, onSnapshot, updateDoc, deleteDoc, doc } from 'firebase/firestore'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faArrowUp,
+  faArrowDown,
+  faTrash,
+  faStar,
+  faPlus
+} from '@fortawesome/free-solid-svg-icons'
 
 export default function Review() {
 
@@ -16,8 +24,6 @@ export default function Review() {
   const albumRef = useRef();
   const artistRef = useRef();
   const reviewRef = useRef();
-  const voteRef = useRef();
-  const ratingRef = useRef();
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
 
@@ -56,7 +62,6 @@ export default function Review() {
       review: reviewRef.current.value,
       votes: 0,
       rating: rating
-      // rating: parseFloat(ratingRef.current.value)
     }
 
     try {
@@ -69,7 +74,7 @@ export default function Review() {
 
   return (
     <>
-      <div>
+      <div className=''>
         <form onSubmit={handleSave}>
           <label>Song Name</label>
           <input type="text" ref={songRef} />
