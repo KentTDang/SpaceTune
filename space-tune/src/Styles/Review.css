@@ -1,49 +1,7 @@
-
-
-
- body {
-    background-color: rgb(14, 15, 17);
-    color: rgb(228, 230, 234);
-}
-
 input {
     background-color: rgb(36, 37, 39);
     border: none;
     color: rgb(228, 230, 234);
-}
-
-.hero {
-    /* background-image: url('../../Assets/bg.webp'); */
-    user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 73.5vh;
-    background: linear-gradient(180deg, black, rgba(0, 0, 0, 1), rgba(0, 0, 0, .9), rgba(0, 0, 0, .8), rgba(0, 0, 0, .7), rgba(0, 0, 0, .6),
-            rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .3), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1), var(--black-color));
-
-    h1 {
-        font-size: 80px;
-    }
-
-    span {
-        color: dodgerblue;
-    }
-}
-
-.hero-stars {
-    top: -1px;
-    width: 100%;
-    max-width: 1400px;
-    position: absolute;
-
-    .img {
-        top: 0;
-        width: 100%;
-        max-width: 1200px;
-        position: absolute;
-        height: 100%;
-    }
 }
 
 .popup-content {
@@ -115,7 +73,7 @@ input {
 
 .vote-container {
     border-radius: 25px;
-    background-color: #a06cd5;
+    background-color: var(--main-purple);
     width: 5.4em;
     height: 2em;
     align-items: center;
