@@ -42,6 +42,17 @@ export default function Spotify() {
     
       }
 
+      const displayTopTracks = async (e) => {
+        e.preventDefault()
+        const {topTracks} = await axios.get("https://api.spotify.com/v1/playlists/{37i9dQZF1DXcBWIGoYBM5M}",{
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+      }
+
+      displayTopTracks()
+
       const searchArtists = async (e) => {
         e.preventDefault()
         const {data} = await axios.get("https://api.spotify.com/v1/search", {
@@ -86,7 +97,7 @@ export default function Spotify() {
           : <button onClick={logout}>Logout </button> }
 
           {token ?
-            <form onSubmit={searchArtists}>  
+            <form onSubmit={displayTopTracks}>  
 
               <input type="text" onChange={e => setSearchKey(e.target.value)} />
               <img id="artist-image" alt="placeholder"></img>
