@@ -91,7 +91,7 @@ export default function Review() {
   }
 
   return (
-    <>
+    <section className='review' id='reviews'>
       <div className="review-dialog">
         <Popup trigger={<button className='add-review-btn'><FontAwesomeIcon icon={faPlus} /></button>}
           modal nested>
@@ -180,6 +180,6 @@ export default function Review() {
           )}
         </div>
       </div>
-    </>
+    </section>
   )
 }
