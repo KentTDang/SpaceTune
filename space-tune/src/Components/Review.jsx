@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-
+import '../Styles/Review.css'
 import { db } from '../Auth/firebase'
 import { addDoc, collection, onSnapshot, updateDoc, deleteDoc, doc } from 'firebase/firestore'
 
@@ -11,7 +11,6 @@ import {
   faStar,
   faPlus
 } from '@fortawesome/free-solid-svg-icons'
-
 import Popup from 'reactjs-popup';
 
 export default function Review() {
@@ -76,21 +75,59 @@ export default function Review() {
 
   return (
     <>
-      <div className=''>
-        <form onSubmit={handleSave}>
-          <label>Song Name</label>
-          <input type="text" ref={songRef} />
-          <br />
-          <label>Album</label>
-          <input type="text" ref={albumRef} />
-          <br />
-          <label>Artist</label>
-          <input type="text" ref={artistRef} />
-          <br />
-          <label>Review</label>
-          <input type="text" ref={reviewRef} />
-          <button className="button-main" type="submit">Save</button >
-        </form>
+      <div className="review-dialog">
+        <Popup trigger={<button><FontAwesomeIcon icon={faPlus} /></button>}
+          modal nested>
+          {
+            close => (
+              
+              <div className='song-review'>
+                <div className="review-top">
+                <span>Song Review</span>
+                <button button onClick={() => close()}>CLOSE</button>
+                </div>
+                <form onSubmit={handleSave}>
+                  <label>Song Name</label>
+                  <input type="text" ref={songRef} />
+                  <br />
+                  <label>Album</label>
+                  <input type="text" ref={albumRef} />
+                  <br />
+                  <label>Artist</label>
+                  <input type="text" ref={artistRef} />
+                  <br />
+                  <label>Review</label>
+                  <input type="text" ref={reviewRef} />
+                  <br />
+                  {[...Array(5)].map((_, index) => {
+                    const currentRating = index + 1;
+                    return (
+                      <label key={index}>
+                        <input
+                          type="radio"
+                          name="rating"
+                          value={currentRating}
+                          onClick={() => setRating(currentRating)}
+                          checked={currentRating === rating} // Set checked based on current rating
+                        />
+                        <FontAwesomeIcon
+                          className="star"
+                          icon={faStar}
+                          color={currentRating <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+                          onMouseEnter={() => setHover(currentRating)}
+                          onMouseLeave={() => setHover(null)}
+                        />
+                      </label>
+                    );
+                  })}
+                  <br/>
+                  <button className="button-main" type="submit">Save</button >
+                </form>
+                
+              </div>
+            )
+          }
+        </Popup>
       </div>
 
       <div className="content-container">
