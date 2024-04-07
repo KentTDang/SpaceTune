@@ -160,15 +160,7 @@ export const Song = () => {
                 
                 {/* {topTracks.data.items.map((el => <option value={el} key={el}> {el} </option>))} */}
 
-                {topTracks((tracks) => {
-                  return (
-                    <div>
-                      hello
-                    </div>
-                  )
-                }
-                  
-                )}
+              
 
                   
 
