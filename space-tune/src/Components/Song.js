@@ -286,6 +286,7 @@ export const Song = () => {
                 
                 {/* {topTracks.data.items.map((el => <option value={el} key={el}> {el} </option>))} */}
 
+<<<<<<< HEAD
                 {/* {topTracks((tracks) => {
                   return (
                     <div>
@@ -295,6 +296,9 @@ export const Song = () => {
                 }
                   
                 )} */}
+=======
+              
+>>>>>>> a25215bacc37448ce5ed45d165b18d9626d4988d
 
                   
 
