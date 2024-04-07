@@ -283,7 +283,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .banner h1 {
-  font-size: 65px;
+  font-size: 72px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1;
@@ -517,4 +517,24 @@ section.review {
 
 
   }
+}
+
+.review-search-bar {
+  width: 50em;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  input {
+    background-color: transparent;
+    font-size: 18;
+    letter-spacing: 2px;
+    font-family: 'Centra', sans-serif !important;
+    font-weight: 700;
+    color: #fff !important;
+  }
+
+  border: 1px solid white;
+  border-radius: 12px;
+  padding-left: 12px;
+  margin-bottom: 12px;
 }

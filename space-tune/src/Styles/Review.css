@@ -1,8 +1,4 @@
-
-
-
-
- body {
+body {
     background-color: white;
     color: rgb(228, 230, 234);
 }
@@ -21,15 +17,43 @@ input {
 }
 
 .song-review {
-    padding: 3px 6px 3px 6px;
+    background-color: #151515;
+    padding: 20px 24px 20px 24px;
+    width: 30rem;
+    border-radius: 12px;
+
     span {
         font-size: 28px;
         font-weight: 500;
     }
+
     label {
         font-size: 18px;
         margin-right: 6px;
     }
+    p {
+        display: table-row;
+    }
+
+    label {
+        display: table-cell;
+    }
+
+    input {
+        display: table-cell;
+        width: 27rem;
+    }
+}
+
+.review-header {
+    font-size: 45px;
+    font-weight: 700;
+    padding-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-purple) ;
+
 }
 
 .review-top {
