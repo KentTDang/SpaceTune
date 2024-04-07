@@ -108,90 +108,115 @@ export default function Review() {
               {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <h2>Reviews</h2>
-                  <div className="review-dialog">
-                    <Popup trigger={<button className='add-review-btn'><FontAwesomeIcon icon={faPlus} /></button>} modal nested>
-                      {close => (
-                        <div className='song-review'>
-                          <div className="review-top">
-                            <span>Song Review</span>
-                            <button onClick={() => close()}>CLOSE</button>
-                          </div>
-                          <form onSubmit={handleSave}>
-                            <label>Song Name</label>
-                            <input type="text" value={song} onChange={(e) => setSong(e.target.value)} />
-                            <br />
-                            <label>Album</label>
-                            <input type="text" value={album} onChange={(e) => setAlbum(e.target.value)} />
-                            <br />
-                            <label>Artist</label>
-                            <input type="text" value={artist} onChange={(e) => setArtist(e.target.value)} />
-                            <br />
-                            <label>Review</label>
-                            <input type="text" value={review} onChange={(e) => setReview(e.target.value)} />
-                            <br />
-                            {[...Array(5)].map((_, index) => {
-                              const currentRating = index + 1;
-                              return (
-                                <label key={index}>
-                                  <input
-                                    type="radio"
-                                    name="rating"
-                                    value={currentRating}
-                                    onClick={() => setRating(currentRating)}
-                                    checked={currentRating === rating}
-                                  />
-                                  <FontAwesomeIcon
-                                    className="star"
-                                    icon={faStar}
-                                    color={currentRating <= (rating ? rating : 0) ? "#ffc107" : "#e4e5e9"}
-                                  />
-                                </label>
-                              );
-                            })}
-                            <br />
-                            <button className="button-main" type="submit">Save</button>
-                          </form>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  {/* Search form */}
-                  <div className="search-container">
-                    <form onSubmit={(e) => { e.preventDefault(); queryCollection(artist); }}>
-                      <input type="text" placeholder="Search by artist..." value={artist} onChange={(e) => setArtist(e.target.value)} />
-                      <button type="submit">Search</button>
-                    </form>
-                  </div>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                       <Nav.Item>
-                        <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                        <Nav.Link eventKey="first">Search</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                        <Nav.Link eventKey="second">Display</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                        <Nav.Link eventKey="third">Add</Nav.Link>
                       </Nav.Item>
                     </Nav>
                     <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                      <Tab.Pane eventKey="section">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                        </p>
-                      </Tab.Pane>
                       <Tab.Pane eventKey="first">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                        </p>
+                        <form onSubmit={(e) => { e.preventDefault(); queryCollection(artist); }}>
+                          <input type="text" placeholder="Search by artist..." value={artist} onChange={(e) => setArtist(e.target.value)} />
+                          <button type="submit">Search</button>
+                        </form>
+                        <div className="d-flex align-items-center justify-content-center">
+                        <div className="review-dialog">
+                          <div className='song-review-container'>
+                            {loading ? (
+                              <h1>Loading...</h1>
+                            ) : songReviews.length > 0 ? (
+                              songReviews.map((song) => (
+                                <div className="review" key={song.id}>
+                                  <h3>{song.song} - {song.album}</h3>
+                                  <p>Artist: {song.artist}</p>
+                                  <p>{song.review}</p>
+                                  <div className="rating">
+                                    {[...Array(5)].map((_, index) => {
+                                      return (
+                                        <FontAwesomeIcon
+                                          key={index}
+                                          icon={faStar}
+                                          color={index < song.rating ? "#ffc107" : "#e4e5e9"}
+                                        />
+                                      );
+                                    })}
+                                  </div>
+                                  <div className="utility">
+                                    <div className="vote-container">
+                                      <button className="vote-button" onClick={() => upVoteSongReview(song.id, song.votes)}><FontAwesomeIcon icon={faArrowUp} /></button>
+                                      {song.votes}
+                                      <button className="vote-button" onClick={() => downVoteSongReview(song.id, song.votes)}><FontAwesomeIcon icon={faArrowDown} /></button>
+                                    </div>
+                                    <button className="trash-button" onClick={() => deleteSongReview(song.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                                  </div>
+                                </div>
+                              ))
+                            ) : (
+                              <p>No reviews found.</p>
+                            )}
+                          </div>
+                        </div>
+                        </div>
+                        
+
                       </Tab.Pane>
-                      <Tab.Pane eventKey="second">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
-                        </p>
+                      <Tab.Pane eventKey="third">
+                        <div className="review-dialog">
+                          {/* <Popup trigger={<button className='add-review-btn'><FontAwesomeIcon icon={faPlus} /></button>} modal nested>
+                            {close => ( */}
+                              <div className='song-review'>
+                                <div className="review-top">
+                                  <span>Song Review</span>
+                                  {/* <button onClick={() => close()}>CLOSE</button> */}
+                                </div>
+                                <form onSubmit={handleSave}>
+                                  <label>Song Name</label>
+                                  <input type="text" value={song} onChange={(e) => setSong(e.target.value)} />
+                                  <br />
+                                  <label>Album</label>
+                                  <input type="text" value={album} onChange={(e) => setAlbum(e.target.value)} />
+                                  <br />
+                                  <label>Artist</label>
+                                  <input type="text" value={artist} onChange={(e) => setArtist(e.target.value)} />
+                                  <br />
+                                  <label>Review</label>
+                                  <input type="text" value={review} onChange={(e) => setReview(e.target.value)} />
+                                  <br />
+                                  {[...Array(5)].map((_, index) => {
+                                    const currentRating = index + 1;
+                                    return (
+                                      <label key={index}>
+                                        <input
+                                          type="radio"
+                                          name="rating"
+                                          value={currentRating}
+                                          onClick={() => setRating(currentRating)}
+                                          checked={currentRating === rating}
+                                        />
+                                        <FontAwesomeIcon
+                                          className="star"
+                                          icon={faStar}
+                                          color={currentRating <= (rating ? rating : 0) ? "#ffc107" : "#e4e5e9"}
+                                        />
+                                      </label>
+                                    );
+                                  })}
+                                  <br />
+                                  <button className="button-main" type="submit">Save</button>
+                                </form>
+                              </div>
+                            {/* )} */}
+                          {/* </Popup> */}
+                        </div>
                       </Tab.Pane>
-                      <Tab.Pane eventKey="third" className="d-flex align-items-center justify-content-center">
+                      <Tab.Pane eventKey="second" className="d-flex align-items-center justify-content-center">
                         <div className='song-review-container'>
                           {loading ? (
                             <h1>Loading...</h1>
