@@ -9,6 +9,9 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import headerImg from './../Assets/img/header-img.svg'
 import { Row, Container, Col } from 'react-bootstrap'
 import React from 'react';
+import SongDisplay from './SongDisplay'
+import Review from './Review'
+
 
 export const Song = () => {
   
@@ -21,9 +24,11 @@ export const Song = () => {
 
   const [token, setToken] = useState("")
   const [topTracks, setTopTracks] = useState([]);
+  const [trendingSongs, setTrendingSongs] = useState([]);
   const [searchKey, setSearchKey] = useState("")
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [showSong, setShowSong] = useState(false)
 
 
   var imgURL = ""
@@ -62,6 +67,20 @@ export const Song = () => {
         
        };
 
+       const getTrendingSongs = async () => {
+        try {
+          const response = await axios.get("https://api.spotify.com/v1/browse/new-releases", {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+          setTrendingSongs(response.data)
+        }catch(error) {
+          console.error("erorrr")
+        }
+       };
+       
+
       const searchSongs = async () => {
         try{
           console.log("this is response")
@@ -82,8 +101,9 @@ export const Song = () => {
         }
       }
       searchSongs()
+      getTrendingSongs()
       getTopTracks()
-      console.log(topTracks)
+      console.log(trendingSongs)
     }, [searchTerm])
 
     const handleInputChange = (event) => {
@@ -101,56 +121,17 @@ export const Song = () => {
       window.localStorage.removeItem("token")
   
     } 
-    
-  //   const getTopTracks = async () => {
-  //     try {
-  //       topTracks = await axios.get("https://api.spotify.com/v1/playlists/37i9dQZF1DWXRqgorJj26U/tracks", {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`
-  //         }
-          
-  //       })
-  //     } catch (error) {
-  //       console.error("Erorr fetching", error)
-  //       return[]
-  //     }
-      
-  //    };
-
-  //  getTopTracks()
-
+ 
   
 
 
     var songbox = document.getElementById("songbox");
 
-    // const displayWheel = async () => {
-    //   for (let i = 0; i < 25; i++) {
-    //     const newWheel = document.createElement('div'); // Use uppercase for element tag name
-    //     newWheel.src = topTracks.data.items[i].track.album.images[0]
-    //     // Optionally, you can add some content or attributes to each slide here
-        
-    //     songbox.appendChild(newWheel); // Use appendChild instead of append
-    //   }
-    //  };
     
- 
-    // const displayWheel = () => {
-    //   for (let i = 0; i < 25; i++) {
-    //     // Create a new <div> element to represent the Swiper slide
-    //     const newSwiperSlide = document.createElement('swiper-slide');
-              
-    //     const imgElement = document.createElement('img');
-        
-    //     imgElement.src = topTracks.data.items[i].track.album.images[0].url; // Replace with your image URL
-        
-    //     newSwiperSlide.appendChild(imgElement);
-        
-    //     songbox.appendChild(newSwiperSlide);
-    //   }
-    // };
+    const toggleSong = () => {
+      setShowSong(!showSong)
+    }
 
-  
 
   const searchArtists = async (e) => {
     e.preventDefault()
@@ -201,8 +182,9 @@ export const Song = () => {
       items: 1
     }
   };
+  var ratingsSearch = document.getElementById("ratings-search-bar")
 
-  console.log(topTracks)
+
   return (
 
     
@@ -251,33 +233,48 @@ export const Song = () => {
               className='swiper_container'>
 
               
-              
+{/*               
                  <SwiperSlide>
                   
-                  <img src={topTracks.tracks.items[0].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                  <img src={topTracks.tracks.items[0].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                  {showSong && <SongDisplay onClose={toggleSong} />}
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src={topTracks.tracks.items[1].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                  <img src={topTracks.tracks.items[1].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                  {showSong && <SongDisplay onClose={toggleSong} />}
+
                 </SwiperSlide>
                 <SwiperSlide>
-                <img src={topTracks.tracks.items[2].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                <img src={topTracks.tracks.items[2].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                {showSong && <SongDisplay onClose={toggleSong} />}
+
                 </SwiperSlide>
                 <SwiperSlide>
-                <img src={topTracks.tracks.items[3].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                <img src={topTracks.tracks.items[3].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                {showSong && <SongDisplay onClose={toggleSong} />}
+
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src={topTracks.tracks.items[4].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                  <img src={topTracks.tracks.items[4].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                  {showSong && <SongDisplay onClose={toggleSong} />}
+
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src={topTracks.tracks.items[5].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                  <img src={topTracks.tracks.items[5].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                  {showSong && <SongDisplay onClose={toggleSong} />}
+
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src={topTracks.tracks.items[6].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                  <img src={topTracks.tracks.items[6].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                  {showSong && <SongDisplay onClose={toggleSong} />}
+
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src={topTracks.tracks.items[7].track.album.images[0].url} alt="slide_image" class = "songpic"/>
+                  <img src={topTracks.tracks.items[7].track.album.images[0].url} alt="slide_image" class = "songpic" onClick={toggleSong}/>
+                  {showSong && <SongDisplay onClose={toggleSong} />}
+
                 </SwiperSlide> 
-                
+                 */}
 
 
                 {/* <SwiperSlide>
@@ -311,9 +308,9 @@ export const Song = () => {
           <Col>
             <div className="song-bx1">
               <h2>
-                Trending Songs
+                New Releases
               </h2>
-              <p>FAT FAT FAT FAT FATFA FATFTGSYTBXUBWUYBXU</p>
+              <p></p>
               <Swiper 
               effect={'coverflow'} 
               grabCursor={true} 

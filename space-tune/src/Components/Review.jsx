@@ -8,6 +8,8 @@ import Popup from 'reactjs-popup';
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import Song from './Song'
+
 
 export default function Review() {
   const [error, setError] = useState("");
@@ -158,7 +160,7 @@ export default function Review() {
                   {/* Search form */}
                   <div className="search-container">
                     <form onSubmit={(e) => { e.preventDefault(); queryCollection(artist); }}>
-                      <input type="text" placeholder="Search by artist..." value={artist} onChange={(e) => setArtist(e.target.value)} />
+                      <input type="text" placeholder="Search by artist..." id = "ratings-search-bar" value={artist} onChange={(e) => setArtist(e.target.value)} />
                       <button type="submit">Search</button>
                     </form>
                   </div>
