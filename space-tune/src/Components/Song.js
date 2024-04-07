@@ -69,7 +69,7 @@ export const Song = () => {
 
     getTopTracks();
 
-    
+
 
   const searchArtists = async (e) => {
     e.preventDefault()
@@ -131,7 +131,7 @@ export const Song = () => {
               <h2>
                 Trending Songs
               </h2>
-              <p>FAT FAT FAT FAT FATFA FATFTGSYTBXUBWUYBXU</p>
+              <p>TOP 25 SONGS</p>
               <Swiper 
               effect={'coverflow'} 
               grabCursor={true} 
