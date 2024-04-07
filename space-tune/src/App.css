@@ -459,7 +459,6 @@ section.review {
   transition: .2s linear;
   border: 1px solid ;
   font-size: 14px;
-  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
@@ -481,4 +480,21 @@ section.review {
   box-shadow: -3xpx -3px 0px black;
 }
 
+#login-button {
+  position: absolute;
+  bottom: px;
+  left: 80vh;
+  color: #B8B8B8;
+  font-size: 18px;
+  width: 6%;
+  letter-spacing: 0.8px;
+  /*line-height: 1.5em;*/
+  /*top: 0px;*/
+  text-align: center; 
+}
+
+#logout:hover {
+
+  color: white;
+}
 
