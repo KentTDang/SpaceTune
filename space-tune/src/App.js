@@ -15,9 +15,9 @@ function App() {
       <Banner/>
       <Song/>
       <Review/>
-      <Song/>
-      {/* <Spotify/>
-      <Review/> */}
+
+      
+  
   </div>
   );
 }
