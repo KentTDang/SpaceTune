@@ -61,6 +61,8 @@ export const NavBar = () => {
       window.localStorage.removeItem("token")
   
     } 
+
+  
       
      
 
@@ -68,7 +70,7 @@ export const NavBar = () => {
     e.preventDefault()
     console.log(token)
     const {data} = await axios.get("https://api.spotify.com/v1/search", {
-  
+    
       headers: {
         Authorization: `Bearer ${token}` // required to authorize usage, without you receive error 401
       },
@@ -79,10 +81,11 @@ export const NavBar = () => {
       }
       });
   
+      console.log(searchKey)
 
-      console.log(data.tracks.items[0].album.images[0].url)
+      // console.log(data.tracks.items[0].album.images[0].url)
       console.log(data)
-      console.log(data.tracks.items[0].name)
+      // console.log(data.tracks.items[0].name)
       var imageElement = document.getElementById("artist-image")
       var songTitleElement = document.getElementById("song-title")
 
@@ -118,8 +121,11 @@ export const NavBar = () => {
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
             <button onClick={searchArtists}>SUBMIT</button>
-            <input id = "search-bar" placeholder="Enter A Song!"></input>
-            <a href={`${AUTH_ENDPOINT}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=${responseType}`}>login to spotify</a>
+            <input type="text" onChange={e => setSearchKey(e.target.value)} />
+            {!token ?
+               <a href={`${AUTH_ENDPOINT}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=${responseType}`}>Login</a>
+                : <button onClick={logout}>Logout</button>
+            }
 
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
