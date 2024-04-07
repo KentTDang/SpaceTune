@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import navIcon1 from './../Assets/img/nav-icon1.svg';
-import navIcon2 from './../Assets/img/nav-icon2.svg';
-import navIcon3 from './../Assets/img/nav-icon3.svg';
 import axios from 'axios';
 
 import {
@@ -84,11 +81,6 @@ export const NavBar = () => {
 
   }
 
-
-  // const handleInputChange = (event) => {
-  //   setSearchTerm(event.target.value)
-  // }
-
   const handleSongSelect = (selectedSong) => {
     console.log('Selected Song', selectedSong)
   }
@@ -112,16 +104,9 @@ export const NavBar = () => {
 
     console.log(searchKey)
 
-    // console.log(data.tracks.items[0].album.images[0].url)
     console.log(data)
-    // console.log(data.tracks.items[0].name)
     var imageElement = document.getElementById("artist-image")
     var songTitleElement = document.getElementById("song-title")
-
-
-    // imgURL = data.tracks.items[0].album.images[0].url
-    // songTitleElement.innerHTML = data.tracks.items[0].name
-    // imageElement.src = imgURL
   }
 
   const [activeLink, setActiveLink] = useState('home');
