@@ -20,7 +20,7 @@ export const Song = () => {
 
 
   const [token, setToken] = useState("")
-  const [topTracks, setTopTracks] = useState([]);
+//   const [topTracks, setTopTracks] = useState([]);
   const [searchKey, setSearchKey] = useState("")
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -46,21 +46,21 @@ export const Song = () => {
   
       setToken(token)
 
-      const getTopTracks = async () => {
-        try {
-          const response = await axios.get("https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M", {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
+    //   const getTopTracks = async () => {
+    //     try {
+    //       const response = await axios.get("https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M", {
+    //         headers: {
+    //           Authorization: `Bearer ${token}`
+    //         }
             
-          });
-          setTopTracks(response.data)
-        } catch (error) {
-          console.error("Erorr fetching", error)
+    //       });
+    //       setTopTracks(response.data)
+    //     } catch (error) {
+    //       console.error("Erorr fetching", error)
           
-        }
+    //     }
         
-       };
+    //    };
 
       const searchSongs = async () => {
         try{
@@ -82,8 +82,8 @@ export const Song = () => {
         }
       }
       searchSongs()
-      getTopTracks()
-      console.log(topTracks)
+    //   getTopTracks()
+    //   console.log(topTracks)
     }, [searchTerm])
 
     const handleInputChange = (event) => {
@@ -202,7 +202,7 @@ export const Song = () => {
     }
   };
 
-  console.log(topTracks)
+//   console.log(topTracks)
   return (
 
     
@@ -251,7 +251,7 @@ export const Song = () => {
               className='swiper_container'>
 
               
-              
+{/*               
                  <SwiperSlide>
                   
                   <img src={topTracks.tracks.items[0].track.album.images[0].url} alt="slide_image" class = "songpic"/>
@@ -277,7 +277,7 @@ export const Song = () => {
                 <SwiperSlide>
                   <img src={topTracks.tracks.items[7].track.album.images[0].url} alt="slide_image" class = "songpic"/>
                 </SwiperSlide> 
-                
+                 */}
 
 
                 {/* <SwiperSlide>
@@ -286,7 +286,7 @@ export const Song = () => {
                 
                 {/* {topTracks.data.items.map((el => <option value={el} key={el}> {el} </option>))} */}
 
-                {topTracks((tracks) => {
+                {/* {topTracks((tracks) => {
                   return (
                     <div>
                       hello
@@ -294,7 +294,7 @@ export const Song = () => {
                   )
                 }
                   
-                )}
+                )} */}
 
                   
 
