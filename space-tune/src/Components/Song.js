@@ -56,15 +56,19 @@ export const Song = () => {
     } 
     
     const getTopTracks = async () => {
-      topTracks = await axios.get("https://api.spotify.com/v1/playlists/37i9dQZF1DWXRqgorJj26U/tracks", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-
-      })
-      console.log(topTracks.data.items)
-    }
-    
+      try {
+        topTracks = await axios.get("https://api.spotify.com/v1/playlists/37i9dQZF1DWXRqgorJj26U/tracks", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+          
+        })
+      } catch (error) {
+        console.error("Erorr fetching", error)
+        return[]
+      }
+      
+     };
 
 
     getTopTracks();
