@@ -120,17 +120,21 @@ export const NavBar = () => {
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
-            <button onClick={searchArtists}>SUBMIT</button>
-            <input type="text" onChange={e => setSearchKey(e.target.value)} />
-            {!token ?
-               <a href={`${AUTH_ENDPOINT}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=${responseType}`}>Login</a>
-                : <button onClick={logout}>Logout</button>
-            }
+            
 
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
+            
+            
+          <button id = "submit-button" onClick={searchArtists}>SUBMIT</button>
+            <input id = "songSearch" placeholder = "search.." type="text" onChange={e => setSearchKey(e.target.value)} />
+            {!token ?
+               <a href={`${AUTH_ENDPOINT}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=${responseType}`}>Login</a>
+                : <button id = "logout" onClick={logout}>Logout</button>                
+            }
+
             <Nav className="ms-auto">
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
               <Nav.Link href="#songs" className={activeLink === 'songs' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('songs')}>Songs</Nav.Link>

@@ -411,3 +411,74 @@ section.review {
   --bs-nav-link-color: var(--main-purple) !important;
   --bs-nav-link-hover-color: var(--dark-purple) !important;
 }
+
+#submit-button {
+  position: absolute;
+  font-weight: bold;
+  bottom: px;
+  left: 27vw;
+  color: grey;
+  /*background-color: #778899;*/
+  width: 6%;
+  text-align: center;  
+  /*border: white 1px solid ;*/
+  
+}
+
+#submit-button:hover {
+
+  color: white; /* change to your desired color */
+}
+
+
+#logout {
+  position: absolute;
+  bottom: px;
+  left: 80vh;
+  color: #B8B8B8;
+  font-size: 18px;
+  width: 6%;
+  letter-spacing: 0.8px;
+  /*line-height: 1.5em;*/
+  /*top: 0px;*/
+  text-align: center; 
+}
+
+#logout:hover {
+
+  color: white;
+}
+
+#songSearch {
+  color: white;
+  padding-left: 7px;
+  background-color: rgb(66, 63, 67);
+  border-radius: 10px;
+  width: 25%;
+  height: 40px;
+  transition: .2s linear;
+  border: 1px solid ;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#songSearch-container {
+  width: 220px;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: calc(50% + 5px);
+  transform: translateY(calc(-50% - 5px));
+}
+
+#songSearch:focus {
+  outline: none;
+  border: 0.8px solid black;
+  box-shadow: -3xpx -3px 0px black;
+}
+
+
