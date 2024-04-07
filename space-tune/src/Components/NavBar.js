@@ -21,8 +21,19 @@ export const NavBar = () => {
 
   const [token, setToken] = useState("")
   const [searchKey, setSearchKey] = useState("")
+  const [searchResults, setSearchResults] = useState([])
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
 
   var imgURL = ""
+
+  let typingTimeout;
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
 
 
 
@@ -36,12 +47,34 @@ export const NavBar = () => {
 
       window.location.hash = ""
       window.localStorage.setItem("token", token)
+      return () => clearTimeout(typingTimeout);
 
     }
 
     setToken(token)
 
-  }, [])
+    const searchSongs = async () => {
+      try {
+        console.log("this is response")
+
+        const response = await axios.get("https://api.spotify.com/v1/search", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          params: {
+            q: searchTerm,
+            type: "track"
+          }
+        })
+        setSearchResults(response.data.tracks.items.slice(0, 5))
+
+      } catch (error) {
+        console.error("Error searching ")
+      }
+    }
+    searchSongs()
+
+  }, [searchTerm])
 
   const logout = () => {
 
@@ -52,6 +85,13 @@ export const NavBar = () => {
   }
 
 
+  // const handleInputChange = (event) => {
+  //   setSearchTerm(event.target.value)
+  // }
+
+  const handleSongSelect = (selectedSong) => {
+    console.log('Selected Song', selectedSong)
+  }
 
 
 
@@ -61,12 +101,12 @@ export const NavBar = () => {
     const { data } = await axios.get("https://api.spotify.com/v1/search", {
 
       headers: {
-        Authorization: `Bearer ${token}` // required to authorize usage, without you receive error 401
+        Authorization: `Bearer ${token}`
       },
 
       params: {
-        q: searchKey, // query, adds onto  the end ofthe url, see await axios.get()
-        type: "artist" // type of search, in this case it's the artist
+        q: searchKey,
+        type: "artist"
       }
     });
 
@@ -113,21 +153,34 @@ export const NavBar = () => {
   return (
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
-      <Container>
-            
+        <Container>
+
 
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
-            
-            
-          <button id = "submit-button" onClick={searchArtists}>SUBMIT</button>
-            <input id = "songSearch" placeholder = "search.." type="text" onChange={e => setSearchKey(e.target.value)} />
-              {!token ?
-               <a id = "login-button" href={`${AUTH_ENDPOINT}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=${responseType}`}>Login</a>
-                : <button id = "logout" onClick={logout}>Logout</button>                
-            }
+
+            <div className="search-bar">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={handleInputChange}
+                placeholder="Search Song..."
+                id="songSearch"
+              />
+              {searchTerm && (
+                <ul>
+                  {searchResults.map((song) => (
+                    <li key={song.id} onClick={() => handleSongSelect(song)}>
+                      {song.name} - {song.artists.map((artist) => artist.name).join(', ')}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            {/* <input id = "songSearch" placeholder = "search.." type="text" onChange={e => setSearchKey(e.target.value)} /> */}
 
             <Nav className="ms-auto">
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>

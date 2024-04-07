@@ -68,8 +68,8 @@ select:focus {
 
 @media (min-width:1700px) {
   main .container {
-      max-width: 100%;
-      padding: 0 150px;
+    max-width: 100%;
+    padding: 0 150px;
   }
 }
 
@@ -172,7 +172,7 @@ span.navbar-text {
   position: relative;
   background-color: transparent;
   transition: 0.3s ease-in-out;
-} 
+}
 
 .navbar-text button span {
   z-index: 1;
@@ -326,15 +326,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 @keyframes updown {
   0% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 
   50% {
-      transform: translateY(20px);
+    transform: translateY(20px);
   }
 
   100% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 }
 
@@ -392,11 +392,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .swiper-3d .swiper-slide-shadow-left {
-  background-image:none !important;
+  background-image: none !important;
 }
 
 .swiper-3d .swiper-slide-shadow-right {
-  background-image:none !important;
+  background-image: none !important;
 }
 
 /** Review CSS **/
@@ -422,14 +422,15 @@ section.review {
   color: grey;
   /*background-color: #778899;*/
   width: 6%;
-  text-align: center;  
+  text-align: center;
   /*border: white 1px solid ;*/
-  
+
 }
 
 #submit-button:hover {
 
-  color: white; /* change to your desired color */
+  color: white;
+  /* change to your desired color */
 }
 
 
@@ -443,7 +444,7 @@ section.review {
   letter-spacing: 0.8px;
   /*line-height: 1.5em;*/
   /*top: 0px;*/
-  text-align: center; 
+  text-align: center;
 }
 
 #logout:hover {
@@ -454,14 +455,17 @@ section.review {
 #songSearch {
   color: white;
   padding-left: 7px;
-  background-color: rgb(66, 63, 67);
-  border-radius: 10px;
-  width: 25%;
+  /* background-color: rgb(66, 63, 67); */
+  /* border-radius: 10px; */
+  width: 30%;
   height: 40px;
   transition: .2s linear;
-  border: 1px solid ;
-  font-size: 14px;
+  border: 1px solid white;
+  font-size: 18;
   letter-spacing: 2px;
+  font-family: 'Centra', sans-serif !important;
+  font-weight: 700;
+
 }
 
 #songSearch-container {
@@ -492,12 +496,25 @@ section.review {
   letter-spacing: 0.8px;
   /*line-height: 1.5em;*/
   /*top: 0px;*/
-  text-align: center; 
+  text-align: center;
 }
 
 #logout:hover {
-    
+
   color: white;
 }
 
+.search-bar {
+  width: 100%;
 
+  input {
+    background-color: transparent;
+    font-size: 18;
+    letter-spacing: 2px;
+    font-family: 'Centra', sans-serif !important;
+    font-weight: 700;
+    color: #fff !important;
+
+
+  }
+}

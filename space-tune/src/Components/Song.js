@@ -212,7 +212,7 @@ export const Song = () => {
         
         <Row>
           <Col>
-          <div> 
+          {/* <div> 
           <input type = "text" value = {searchTerm} onChange={handleInputChange} placeholder = "Enter Song" />  
           <ul>
             {searchResults.map((song) =>(
@@ -221,7 +221,7 @@ export const Song = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
             <div className="song-bx" id = "songbox">
               <h2>
                 Trending Songs
@@ -286,19 +286,6 @@ export const Song = () => {
                 
                 {/* {topTracks.data.items.map((el => <option value={el} key={el}> {el} </option>))} */}
 
-<<<<<<< HEAD
-                {/* {topTracks((tracks) => {
-                  return (
-                    <div>
-                      hello
-                    </div>
-                  )
-                }
-                  
-                )} */}
-=======
-              
->>>>>>> a25215bacc37448ce5ed45d165b18d9626d4988d
 
                   
 
