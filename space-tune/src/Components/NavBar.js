@@ -130,7 +130,7 @@ export const NavBar = () => {
             
           <button id = "submit-button" onClick={searchArtists}>SUBMIT</button>
             <input id = "songSearch" placeholder = "search.." type="text" onChange={e => setSearchKey(e.target.value)} />
-            {!token ?
+              {!token ?
                <a id = "login-button" href={`${AUTH_ENDPOINT}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=${responseType}`}>Login</a>
                 : <button id = "logout" onClick={logout}>Logout</button>                
             }

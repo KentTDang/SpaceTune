@@ -172,7 +172,7 @@ span.navbar-text {
   position: relative;
   background-color: transparent;
   transition: 0.3s ease-in-out;
-}
+} 
 
 .navbar-text button span {
   z-index: 1;
@@ -217,9 +217,11 @@ nav.navbar .navbar-toggler-icon {
   top: -2px;
 }
 
+
 nav.navbar .navbar-toggler-icon:focus {
   border-bottom: 2px solid #fff;
 }
+
 
 nav.navbar .navbar-toggler-icon:after,
 nav.navbar .navbar-toggler-icon:before {
@@ -494,7 +496,7 @@ section.review {
 }
 
 #logout:hover {
-
+    
   color: white;
 }
 
