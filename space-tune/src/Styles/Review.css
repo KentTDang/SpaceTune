@@ -1,3 +1,12 @@
+
+
+
+
+ body {
+    background-color: white;
+    color: rgb(228, 230, 234);
+}
+
 input {
     background-color: rgb(36, 37, 39);
     border: none;
@@ -38,7 +47,7 @@ input {
     padding: 0.5em 2em;
     border: transparent;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    background: #c8b6ff;
+    background: var(--main-purple);
     color: rgb(228, 230, 234);
     border-radius: 4px;
     margin: 1.5px;

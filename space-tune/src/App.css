@@ -68,8 +68,8 @@ select:focus {
 
 @media (min-width:1700px) {
   main .container {
-      max-width: 100%;
-      padding: 0 150px;
+    max-width: 100%;
+    padding: 0 150px;
   }
 }
 
@@ -217,9 +217,11 @@ nav.navbar .navbar-toggler-icon {
   top: -2px;
 }
 
+
 nav.navbar .navbar-toggler-icon:focus {
   border-bottom: 2px solid #fff;
 }
+
 
 nav.navbar .navbar-toggler-icon:after,
 nav.navbar .navbar-toggler-icon:before {
@@ -252,6 +254,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
+}
+
+.search-submit {
+  background-color: #fff;
+  z-index: 100 !important;
 }
 
 /************ Banner Css ************/
@@ -319,15 +326,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 @keyframes updown {
   0% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 
   50% {
-      transform: translateY(20px);
+    transform: translateY(20px);
   }
 
   100% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 }
 
@@ -385,11 +392,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .swiper-3d .swiper-slide-shadow-left {
-  background-image:none !important;
+  background-image: none !important;
 }
 
 .swiper-3d .swiper-slide-shadow-right {
-  background-image:none !important;
+  background-image: none !important;
 }
 
 /** Review CSS **/
@@ -405,4 +412,109 @@ section.review {
 .nav {
   --bs-nav-link-color: var(--main-purple) !important;
   --bs-nav-link-hover-color: var(--dark-purple) !important;
+}
+
+#submit-button {
+  position: absolute;
+  font-weight: bold;
+  bottom: px;
+  left: 27vw;
+  color: grey;
+  /*background-color: #778899;*/
+  width: 6%;
+  text-align: center;
+  /*border: white 1px solid ;*/
+
+}
+
+#submit-button:hover {
+
+  color: white;
+  /* change to your desired color */
+}
+
+
+#logout {
+  position: absolute;
+  bottom: px;
+  left: 80vh;
+  color: #B8B8B8;
+  font-size: 18px;
+  width: 6%;
+  letter-spacing: 0.8px;
+  /*line-height: 1.5em;*/
+  /*top: 0px;*/
+  text-align: center;
+}
+
+#logout:hover {
+
+  color: white;
+}
+
+#songSearch {
+  color: white;
+  padding-left: 7px;
+  /* background-color: rgb(66, 63, 67); */
+  /* border-radius: 10px; */
+  width: 30%;
+  height: 40px;
+  transition: .2s linear;
+  border: 1px solid white;
+  font-size: 18;
+  letter-spacing: 2px;
+  font-family: 'Centra', sans-serif !important;
+  font-weight: 700;
+
+}
+
+#songSearch-container {
+  width: 220px;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: calc(50% + 5px);
+  transform: translateY(calc(-50% - 5px));
+}
+
+#songSearch:focus {
+  outline: none;
+  border: 0.8px solid black;
+  box-shadow: -3xpx -3px 0px black;
+}
+
+#login-button {
+  position: absolute;
+  bottom: px;
+  left: 80vh;
+  color: #B8B8B8;
+  font-size: 18px;
+  width: 6%;
+  letter-spacing: 0.8px;
+  /*line-height: 1.5em;*/
+  /*top: 0px;*/
+  text-align: center;
+}
+
+#logout:hover {
+
+  color: white;
+}
+
+.search-bar {
+  width: 100%;
+
+  input {
+    background-color: transparent;
+    font-size: 18;
+    letter-spacing: 2px;
+    font-family: 'Centra', sans-serif !important;
+    font-weight: 700;
+    color: #fff !important;
+
+
+  }
 }
