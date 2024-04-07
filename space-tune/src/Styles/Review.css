@@ -1,6 +1,7 @@
 
 
 
+
  body {
     background-color: white;
     color: rgb(228, 230, 234);
@@ -10,40 +11,6 @@ input {
     background-color: rgb(36, 37, 39);
     border: none;
     color: rgb(228, 230, 234);
-}
-
-.hero {
-    /* background-image: url('../../Assets/bg.webp'); */
-    user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 73.5vh;
-    background: linear-gradient(180deg, black, rgba(0, 0, 0, 1), rgba(0, 0, 0, .9), rgba(0, 0, 0, .8), rgba(0, 0, 0, .7), rgba(0, 0, 0, .6),
-            rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .3), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1), var(--black-color));
-
-    h1 {
-        font-size: 80px;
-    }
-
-    span {
-        color: dodgerblue;
-    }
-}
-
-.hero-stars {
-    top: -1px;
-    width: 100%;
-    max-width: 1400px;
-    position: absolute;
-
-    .img {
-        top: 0;
-        width: 100%;
-        max-width: 1200px;
-        position: absolute;
-        height: 100%;
-    }
 }
 
 .popup-content {
@@ -71,12 +38,16 @@ input {
     align-items: center;
 }
 
+.add-review-btn {
+    background-color: #fff;
+}
+
 .button-main {
     font-size: 17px;
     padding: 0.5em 2em;
     border: transparent;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    background: dodgerblue;
+    background: #c8b6ff;
     color: rgb(228, 230, 234);
     border-radius: 4px;
     margin: 1.5px;
@@ -111,7 +82,7 @@ input {
 
 .vote-container {
     border-radius: 25px;
-    background-color: dodgerblue;
+    background-color: var(--main-purple);
     width: 5.4em;
     height: 2em;
     align-items: center;
@@ -126,10 +97,9 @@ input {
 }
 
 .trash-button {
-    background-color: dodgerblue;
+    background-color: transparent;
     border: none;
     color: #fff;
-    height: 2.4em;
     width: 2.4em;
     border-radius: 100%;
     margin-left: 6px;
