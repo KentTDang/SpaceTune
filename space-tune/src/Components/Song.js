@@ -176,9 +176,9 @@ export const Song = () => {
       var songTitleElement = document.getElementById("song-title")
 
 
-      imgURL = data.tracks.items[0].album.images[0].url
-      songTitleElement.innerHTML = data.tracks.items[0].name
-      imageElement.src = imgURL
+      // imgURL = data.tracks.items[0].album.images[0].url
+      // songTitleElement.innerHTML = data.tracks.items[0].name
+      // imageElement.src = imgURL
     }
 
 
@@ -249,6 +249,7 @@ export const Song = () => {
               }}
               modules={[EffectCoverflow,Pagination,Navigation]} 
               className='swiper_container'>
+
               
               
                  <SwiperSlide>
@@ -277,6 +278,26 @@ export const Song = () => {
                   <img src={topTracks.tracks.items[7].track.album.images[0].url} alt="slide_image" class = "songpic"/>
                 </SwiperSlide> 
                 
+
+
+                {/* <SwiperSlide>
+                  <img src={headerImg} alt="slide_image"/>
+                </SwiperSlide> */}
+                
+                {/* {topTracks.data.items.map((el => <option value={el} key={el}> {el} </option>))} */}
+
+                {topTracks((tracks) => {
+                  return (
+                    <div>
+                      hello
+                    </div>
+                  )
+                }
+                  
+                )}
+
+                  
+
 
                 <div className="slider-container">
                   <div className="swiper-button-prev slider-arrow">

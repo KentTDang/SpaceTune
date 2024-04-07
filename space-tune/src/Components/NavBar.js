@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../Assets/img/logo.svg';
 import navIcon1 from './../Assets/img/nav-icon1.svg';
 import navIcon2 from './../Assets/img/nav-icon2.svg';
 import navIcon3 from './../Assets/img/nav-icon3.svg';
@@ -9,16 +8,6 @@ import axios from 'axios';
 import {
   BrowserRouter as Router
 } from "react-router-dom";
-
-export default function Spotify() {
-
-  
-
-  
-
-}
-
-
 
 
 
@@ -90,9 +79,9 @@ export const NavBar = () => {
       var songTitleElement = document.getElementById("song-title")
 
 
-      imgURL = data.tracks.items[0].album.images[0].url
-      songTitleElement.innerHTML = data.tracks.items[0].name
-      imageElement.src = imgURL
+      // imgURL = data.tracks.items[0].album.images[0].url
+      // songTitleElement.innerHTML = data.tracks.items[0].name
+      // imageElement.src = imgURL
     }
 
   const [activeLink, setActiveLink] = useState('home');
