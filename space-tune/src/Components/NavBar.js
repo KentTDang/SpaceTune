@@ -79,9 +79,9 @@ export const NavBar = () => {
       var songTitleElement = document.getElementById("song-title")
 
 
-      imgURL = data.tracks.items[0].album.images[0].url
-      songTitleElement.innerHTML = data.tracks.items[0].name
-      imageElement.src = imgURL
+      // imgURL = data.tracks.items[0].album.images[0].url
+      // songTitleElement.innerHTML = data.tracks.items[0].name
+      // imageElement.src = imgURL
     }
 
   const [activeLink, setActiveLink] = useState('home');
